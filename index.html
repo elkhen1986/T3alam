@@ -129,18 +129,26 @@
 </style>
 </head>
 <body>
-    <header class="fixed-nav">
-        <div class="flex items-center gap-2">
-            <i class="fas fa-atom text-violet text-2xl"></i>
-            <span class="text-2xl font-black">تـعلـم</span>
-        </div>
-        <div class="flex items-center gap-2">
-            <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">
-                <i class="fas fa-sun"></i>
-            </button>
-            <div class="font-bold text-xs" style="color:var(--muted)">أ/ عبدالحميد الخن</div>
-        </div>
-    </header>
+    <header class="fixed-nav grid grid-cols-3 items-center px-4">
+    <div class="flex items-center gap-2 justify-start">
+        <i class="fas fa-atom text-violet text-2xl"></i>
+        <span class="text-2xl font-black">تـعلـم</span>
+    </div>
+
+    <div class="flex justify-center">
+    <span class="flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 whitespace-nowrap">
+        <i class="fas fa-circle-exclamation"></i>
+        معدلة حسب المحذوف والمعلق
+    </span>
+</div>
+
+    <div class="flex items-center gap-2 justify-end">
+        <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">
+            <i class="fas fa-sun"></i>
+        </button>
+        <div class="font-bold text-xs" style="color:var(--muted)">أ/ عبدالحميد الخن</div>
+    </div>
+</header>
 
     <main>
         <!-- الرئيسية - بدون صفحة دخول -->
@@ -963,7 +971,7 @@
     
     <div class="text-center mb-8">
         <h2 class="text-3xl font-black text-sky-400 mb-2">أسئلة علل</h2>
-        <p class="text-slate-400">الوحدة الثانية - الكيمياء العضوية</p>
+        <p class="text-slate-400">الوحدة الثانية - المشتقات الهيدروكربونية</p>
         <div class="flex items-center justify-center gap-2 mt-4 text-amber-400 text-sm">
             <i class="fas fa-hand-pointer"></i>
             <span>اضغط على البطاقة لتظهر الإجابة</span>
@@ -1201,7 +1209,10 @@
             <h4 class="font-bold text-lg text-sky-300">36. يتكون راسب أحمر طوبي عند إضافة قطرات من الأسيتالدهيد إلى محلول فهلنج (بندكت) ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-1">
                 <p>- بسبب أكسدة الأسيتالدهيد (الإيثانال) بمحلول فهلنج وتكون ملح الحمض العضوي ويُختزل كاتيونات النحاس II إلى أكسيد النحاس I (راسب أحمر طوبي) حسب المعادلة التالية :</p>
-                <p class="text-green-400 font-mono" dir="ltr">CH3-CHO + [2Cu2+ + 5OH-] → CH3-COO- + Cu2O + 3H2O</p>
+<p class="text-green-400 font-mono" dir="ltr">
+  CH<sub>3</sub>CHO<sub>(aq)</sub> + 2Cu<sup>2+</sup><sub>(aq)</sub> + 5OH<sup>−</sup><sub>(aq)</sub> 
+  → CH<sub>3</sub>COO<sup>−</sup><sub>(aq)</sub> + Cu<sub>2</sub>O<sub>(s)</sub> + 3H<sub>2</sub>O<sub>(l)</sub>
+</p>
             </div>
         </div>
 
@@ -1209,8 +1220,10 @@
             <h4 class="font-bold text-lg text-sky-300">37. تتكون مرآة لامعة على جدران الأنبوبة عند تسخين الفورمالدهيد (الميثانال) مع محلول تولن (كاشف) في حمام مائي ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-1">
                 <p>- بسبب أكسدة الميثانال بكاشف تولن وتكون ملح الحمض العضوي وتُختزل كاتيونات الفضة إلى ذرات فضة التي تترسب على الجدار الداخلي للأنبوبة وفق المعادلة:</p>
-                <p class="text-green-400 font-mono" dir="ltr">H-CHO + [2Ag+ + 3OH-] → H-COO- + 2Ag(s) + 2H2O</p>
-            </div>
+<p class="text-green-400 font-mono" dir="ltr">
+  HCHO<sub>(aq)</sub> + 2Ag<sup>+</sup><sub>(aq)</sub> + 3OH<sup>−</sup><sub>(aq)</sub> 
+  → HCOO<sup>−</sup><sub>(aq)</sub> + 2Ag<sub>(s)</sub> + 2H<sub>2</sub>O<sub>(l)</sub>
+</p>            </div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
@@ -1226,6 +1239,119 @@
     </div>
 </section>
 
+        <!-- ماذا تتوقع أن يحدث العضوية -->
+<section id="predict-u2-12" class="page-section max-w-5xl mx-auto px-6" dir="rtl">
+    <button onclick="navigateTo('unit2-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
+        <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
+    </button>
+    
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-black text-amber-400 mb-2">ماذا تتوقع أن يحدث ؟</h2>
+        <p class="text-slate-400">الوحدة الثانية - المشتقات الهيدروكربونية</p>
+        <div class="flex items-center justify-center gap-2 mt-4 text-amber-400 text-sm">
+            <i class="fas fa-hand-pointer"></i>
+            <span>اضغط على البطاقة لتظهر الإجابة</span>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+
+        <!-- 1 -->
+        <div class="glass-card p-6 cursor-pointer hover:border-amber-400/50 transition-all" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">1. إضافة الماء المقطر إلى وعاء يحتوي على إيثوكسيد الصوديوم في وجود عدة نقاط من دليل الفينولفثالين بالنسبة للون المحلول ؟</h4>
+            <div class="answer hidden mt-4 pt-4 border-t border-white/10 text-slate-200 space-y-2">
+                <p><strong class="text-amber-300">التوقع:</strong> يتلون باللون الزهري</p>
+                <p><strong class="text-amber-300">التفسير:</strong></p>
+                <p>يتفاعل إيثوكسيد الصوديوم مع الماء ويكون كحول الإيثيل وينتج هيدروكسيد الصوديوم الذي يجعل الوسط قاعدي لذلك يتغير لون الدليل.</p>
+                <p>المعادلة: <span class="text-green-400 font-mono" dir="ltr">CH<sub>3</sub>CH<sub>2</sub>ONa<sub>(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub> → CH<sub>3</sub>CH<sub>2</sub>OH<sub>(aq)</sub> + NaOH<sub>(aq)</sub></span></p>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="glass-card p-6 cursor-pointer hover:border-amber-400/50 transition-all" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">2. إضافة مادة مؤكسدة إلى كحول البيوتنيل الثالثي بالنسبة لتأكسد الكحول ؟</h4>
+            <div class="answer hidden mt-4 pt-4 border-t border-white/10 text-slate-200 space-y-2">
+                <p><strong class="text-amber-300">التوقع:</strong> لا يتأكسد (لا يحدث تفاعل)</p>
+                <p><strong class="text-amber-300">التفسير:</strong></p>
+                <p>لعدم وجود ذرة هيدروجين متصلة بذرة الكربون المتصلة بمجموعة الهيدروكسيل.</p>
+            </div>
+        </div>
+
+        <!-- 3 -->
+<div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+    <h4 class="font-bold text-lg text-sky-300">3. تسخين الفورمالدهيد مع محلول تولن ؟</h4>
+    <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
+        <p>- بسبب أكسدة الميثانال بكاشف تولن وتكون ملح الحمض العضوي وتُختزل كاتيونات الفضة إلى ذرات فضة التي تترسب على الجدار الداخلي للأنبوبة وفق المعادلة:</p>
+
+        <div class="overflow-x-auto">
+            <div class="inline-block py-1" dir="ltr">
+                <table class="mx-auto text-center">
+                    <tr class="font-mono text- text-green-400">
+                        <td class="px-3">H-CHO</td>
+                        <td class="px-2">+</td>
+                        <td class="px-3">[2Ag<sup>+</sup> + 3OH<sup>−</sup>]</td>
+                        <td class="px-2">→</td>
+                        <td class="px-3">H-COO<sup>−</sup></td>
+                        <td class="px-2">+</td>
+                        <td class="px-3">2H<sub>2</sub>O</td>
+                        <td class="px-2">+</td>
+                        <td class="px-3">2Ag</td>
+                    </tr>
+                    <tr class="text- leading-snug" dir="rtl">
+                        <td class="pt-1">الفورمالدهيد<br>عامل مختزل</td>
+                        <td></td>
+                        <td class="pt-1">محلول تولن<br>عامل مؤكسد ضعيف</td>
+                        <td></td>
+                        <td class="pt-1">شق حمضى<br>لحمض الفورميك</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="pt-1">راسب من الفضة<br>مرآة لامعة من الفضة</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- 4 -->
+<div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+    <h4 class="font-bold text-lg text-sky-300">4. تسخين الأسيتالدهيد مع محلول فهلنج ؟</h4>
+    <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
+        <p>- بسبب أكسدة الإيثانال بكاشف فهلنج وتكون ملح الحمض العضوي وتُختزل كاتيونات النحاس إلى أكسيد نحاس(I) أحمر طوبي وفق المعادلة:</p>
+
+        <div class="overflow-x-auto">
+            <div class="inline-block py-1" dir="ltr">
+                <table class="mx-auto text-center">
+                    <tr class="font-mono text-[17px] text-green-400">
+                        <td class="px-3">CH<sub>3</sub>-CHO</td>
+                        <td class="px-2">+</td>
+                        <td class="px-3">[2Cu<sup>2+</sup> + 5OH<sup>−</sup>]</td>
+                        <td class="px-2">→</td>
+                        <td class="px-3">CH<sub>3</sub>-COO<sup>−</sup></td>
+                        <td class="px-2">+</td>
+                        <td class="px-3">Cu<sub>2</sub>O</td>
+                        <td class="px-2">+</td>
+                        <td class="px-3">3H<sub>2</sub>O</td>
+                    </tr>
+                    <tr class="text-[12px] leading-snug" dir="rtl">
+                        <td class="pt-1">الأسيتالدهيد<br>عامل مختزل</td>
+                        <td></td>
+                        <td class="pt-1">محلول فهلنج<br>عامل مؤكسد ضعيف</td>
+                        <td></td>
+                        <td class="pt-1">شق حمضى<br>لحمض الأسيتيك</td>
+                        <td></td>
+                        <td class="pt-1">أكسيد النحاس<br>راسب أحمر طوبي</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
         <!-- صفحات المحتوى -->
         <section id="terms-u1-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">المصطلحات - الأملاح</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit1-12')" class="mt-8 text-sky-400 font-bold">رجوع</button></div></section>
         <section id="questions-u1-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">أسئلة علل - الأملاح</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit1-12')" class="mt-8 text-sky-400 font-bold">رجوع</button></div></section>
@@ -1236,8 +1362,23 @@
         <section id="predict-u2-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">ماذا تتوقع - المشتقات</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit2-12')" class="mt-8 text-indigo-400 font-bold">رجوع</button></div></section>
     </main>
 
-    <footer class="fixed-footer"><p class="text- text-slate-500 font-black tracking-">Elkhen Education © 2025-2026</p></footer>
-    <a href="https://wa.me/96555959295" target="_blank" class="wa-float"><div class="wa-icon"><i class="fab fa-whatsapp text-white text-3xl"></i></div></a>
+<footer class="fixed-footer grid grid-cols-3 items-center px-6 py-2.5 gap-4">
+    <!-- أقصى الشمال - السنة -->
+    <p class="justify-self-start text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+        © 2025-2026
+    </p>
+
+    <!-- النص - في الوسط -->
+    <p class="justify-self-center text-center font-bold text-[12px] sm:text-[13px] text-amber-700 dark:text-amber-400 whitespace-nowrap px-2">
+        يتمنى لكم أستاذ عبدالحميد مزيداً من النجاح والتفوق
+    </p>
+
+    <!-- أقصى اليمين - الخن -->
+    <p class="justify-self-end text-[11px] text-slate-500 dark:text-slate-400 font-black tracking-wide">
+        Elkhen Education
+    </p>
+</footer>
+<a href="https://wa.me/96555959295" target="_blank" class="wa-float"><div class="wa-icon"><i class="fab fa-whatsapp text-white text-3xl"></i></div></a>
 
     <script>
         function navigateTo(id) {
