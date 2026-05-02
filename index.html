@@ -45,21 +45,41 @@
     }
     
     header.fixed-nav { 
-        position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 1000; 
-        background: var(--nav); backdrop-filter: blur(12px); 
-        border-bottom: 1px solid var(--border); 
-        display: flex; align-items: center; justify-content: space-between; padding: 0 25px; 
-    }
+    position: fixed; top: 0; left: 0; right: 0; 
+    z-index: 1000; 
+    background: var(--nav); 
+    backdrop-filter: blur(12px); 
+    border-bottom: 1px solid var(--border); 
+    min-height: 56px;
+    height: auto;
+    padding: 8px clamp(12px, 3vw, 24px);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+}
+
+footer.fixed-footer { 
+    position: fixed; bottom: 0; left: 0; right: 0; 
+    z-index: 1000; 
+    background: var(--nav); 
+    backdrop-filter: blur(12px); 
+    border-top: 1px solid var(--border); 
+    min-height: 38px;
+    height: auto;
+    padding: 6px clamp(12px, 3vw, 24px);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(10px, 2.5vw, 12px);
+}
     
-    footer.fixed-footer { 
-        position: fixed; bottom: 0; left: 0; right: 0; height: 40px; z-index: 1000; 
-        background: var(--nav); backdrop-filter: blur(12px); 
-        border-top: 1px solid var(--border); 
-        display: flex; align-items: center; justify-content: center; 
-    }
-    
-    main { flex: 1; padding-top: 90px; padding-bottom: 60px; }
-    
+main { 
+    flex: 1; 
+    padding-top: clamp(70px, 12vw, 90px); 
+    padding-bottom: clamp(50px, 10vw, 65px); 
+}    
    .glass-card { 
        background: var(--card); 
        backdrop-filter: blur(15px); 
@@ -158,6 +178,22 @@
 /* في الوضع الفاتح خلي الظل أخف */
 [data-theme="light"] .flag-wrap img {
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* موبايل صغير */
+@media (max-width: 480px) {
+    header.fixed-nav {
+        grid-template-columns: 1fr auto;
+        row-gap: 6px;
+    }
+    header.fixed-nav > div:nth-child(2) { /* البادج في النص */
+        grid-column: 1 / -1;
+        order: 3;
+        justify-self: center;
+    }
+    header .text-2xl { font-size: 1.3rem; }
+    .flag-wrap { width: 26px; height: 18px; }
+    .theme-btn { width: 32px; height: 32px; }
 }
 </style>
 </head>
