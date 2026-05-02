@@ -126,14 +126,50 @@
    [data-theme="light"] .answer { color: #1e293b !important; }
    [data-theme="light"] .glass-card p { color: #334155 !important; }
    [data-theme="light"] .glass-card:hover { background: rgba(255,255,255,0.9); }
+
+/* === علم الكويت مع أنيميشن === */
+.flag-wrap {
+    perspective: 120px;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+}
+.flag-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    animation: kw-wave 3s ease-in-out infinite;
+    transform-origin: left center;
+}
+
+@keyframes kw-wave {
+    0%   { transform: rotateY(0deg) skewY(0deg); }
+    25%  { transform: rotateY(10deg) skewY(-1deg); }
+    50%  { transform: rotateY(0deg) skewY(0deg); }
+    75%  { transform: rotateY(-8deg) skewY(1deg); }
+    100% { transform: rotateY(0deg) skewY(0deg); }
+}
+
+.flag-wrap:hover img {
+    animation-play-state: paused;
+}
+
+/* في الوضع الفاتح خلي الظل أخف */
+[data-theme="light"] .flag-wrap img {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
 </style>
 </head>
 <body>
     <header class="fixed-nav grid grid-cols-3 items-center px-4">
     <div class="flex items-center gap-2 justify-start">
-        <i class="fas fa-atom text-violet text-2xl"></i>
-        <span class="text-2xl font-black">تـعلـم</span>
+    <div class="flag-wrap">
+        <img src="https://flagcdn.com/kw.svg" alt="Kuwait">
     </div>
+    <i class="fas fa-atom text-2xl" style="color:var(--accent)"></i>
+    <span class="text-2xl font-black">تـعلـم</span>
+</div>
 
     <div class="flex justify-center">
     <span class="flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 whitespace-nowrap">
@@ -207,13 +243,513 @@
                 <div onclick="navigateTo('term2-11')" class="glass-card p-14 text-center cursor-pointer border-b-8 border-sky-500"><h4 class="text-2xl font-black">الفصل الثاني</h4><span class="status-badge badge-live">متاح الآن</span></div>
             </div>
         </section>
+
+        <!-- حادي عشر - فصل ثاني = وحدتين -->
         <section id="term2-11" class="page-section max-w-6xl mx-auto px-6">
-            <button onclick="navigateTo('sem-11')" class="glass-card px-5 py-2 mb-10 text-xs font-black">رجوع</button>
+            <button onclick="navigateTo('sem-11')" class="glass-card px-5 py-2 mb-10 text-xs font-black">رجوع للفصول</button>
             <h3 class="text-2xl font-black mb-8 text-sky-400 text-center">الصف الحادي عشر - الفصل الثاني</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div onclick="navigateTo('terms-11')" class="glass-card sub-lesson-card"><i class="fas fa-book text-3xl text-sky-400"></i><h4 class="font-black text-xl">المصطلحات العلمية</h4></div>
-                <div onclick="navigateTo('questions-11')" class="glass-card sub-lesson-card"><i class="fas fa-question-circle text-3xl text-sky-400"></i><h4 class="font-black text-xl">أسئلة علل</h4></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div onclick="navigateTo('unit1-11')" class="glass-card p-10 cursor-pointer border-r-4 border-sky-500">
+                    <div class="flex justify-between items-start mb-6"><i class="fas fa-vial text-4xl text-sky-400"></i><span class="text- bg-sky-500/10 text-sky-400 px-4 py-1.5 rounded-xl font-bold">الوحدة 1</span></div>
+                    <h2 class="text- font-bold text-slate-400">الوحدة الأولى</h2>
+                    <h4 class="text-2xl font-black">الكيمياء الكهربية</h4>
+                </div>
+                <div onclick="navigateTo('unit2-11')" class="glass-card p-10 cursor-pointer border-r-4 border-indigo-500">
+                    <div class="flex justify-between items-start mb-6"><i class="fas fa-atom text-4xl text-indigo-400"></i><span class="text- bg-indigo-500/10 text-indigo-400 px-4 py-1.5 rounded-xl font-bold">الوحدة 2</span></div>
+                    <h2 class="text- font-bold text-slate-400">الوحدة الثانية</h2>
+                    <h4 class="text-2xl font-black">المركبات الهيدروكربونية</h4>
+                </div>
             </div>
+        </section>
+
+        <!-- الوحدة الأولى -->
+        <section id="unit1-11" class="page-section max-w-6xl mx-auto px-6">
+            <button onclick="navigateTo('term2-11')" class="glass-card px-5 py-2 mb-10 text-xs font-black">رجوع للوحدات</button>
+            <h3 class="text-2xl font-black mb-2 text-sky-400 text-center">الكيمياءالكهربائية</h3>
+            <p class="text-center text-slate-400 mb-8">الوحدة الأولى</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div onclick="navigateTo('terms-u1-11')" class="glass-card sub-lesson-card"><i class="fas fa-book text-3xl text-sky-400"></i><h4 class="font-black text-xl">المصطلحات العلمية</h4></div>
+                <div onclick="navigateTo('questions-u1-11')" class="glass-card sub-lesson-card"><i class="fas fa-question-circle text-3xl text-sky-400"></i><h4 class="font-black text-xl">أسئلة علل</h4></div>
+                <div onclick="navigateTo('predict-u1-11')" class="glass-card sub-lesson-card"><i class="fas fa-lightbulb text-3xl text-amber-400"></i><h4 class="font-black text-xl">ماذا تتوقع أن يحدث</h4></div>
+            </div>
+        </section>
+
+        <!-- الوحدة الثانية -->
+        <section id="unit2-11" class="page-section max-w-6xl mx-auto px-6">
+            <button onclick="navigateTo('term2-12')" class="glass-card px-5 py-2 mb-10 text-xs font-black">رجوع للوحدات</button>
+            <h3 class="text-2xl font-black mb-2 text-indigo-400 text-center">المركبات الهيدروكربونية</h3>
+            <p class="text-center text-slate-400 mb-8">الوحدة الثانية</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div onclick="navigateTo('terms-u2-11')" class="glass-card sub-lesson-card"><i class="fas fa-book text-3xl text-indigo-400"></i><h4 class="font-black text-xl">المصطلحات العلمية</h4></div>
+                <div onclick="navigateTo('questions-u2-11')" class="glass-card sub-lesson-card"><i class="fas fa-question-circle text-3xl text-indigo-400"></i><h4 class="font-black text-xl">أسئلة علل</h4></div>
+                <div onclick="navigateTo('predict-u2-11')" class="glass-card sub-lesson-card"><i class="fas fa-lightbulb text-3xl text-amber-400"></i><h4 class="font-black text-xl">ماذا تتوقع أن يحدث</h4></div>
+            </div>
+        </section>
+
+        <!-- مصطلحات الكيمياء الكهربائية -->
+        <section id="terms-u1-11" class="page-section max-w-6xl mx-auto px-6">
+    <button onclick="navigateTo('unit1-11')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
+        <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
+    </button>
+
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-black text-sky-400 mb-2">المصطلحات العلمية</h2>
+        <p class="text-slate-400">الصف الحادي عشر - الكيمياء الكهربائية</p>
+        <div class="h-1 w-24 bg-sky-500 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <!-- 1 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">1.</span> الأكسدة</h3>
+            <p class="text-sm text-slate-300">عملية ينتج عنها فقدان إلكترونات ويصحبها زيادة في عدد التأكسد</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">2.</span> الاختزال</h3>
+            <p class="text-sm text-slate-300">عملية ينتج عنها اكتساب إلكترونات ويصحبها نقص في عدد التأكسد</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">3.</span> العامل المختزل</h3>
+            <p class="text-sm text-slate-300">المادة التي تفقد إلكترونات في تفاعلات الأكسدة والاختزال. أو النوع الذي يحتوي على عنصر يستطيع فقد الإلكترونات ويزداد عدد التأكسد له أثناء التفاعل الكيميائي.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">4.</span> العامل المؤكسد</h3>
+            <p class="text-sm text-slate-300">المادة التي تكتسب إلكترونات في تفاعلات الأكسدة والاختزال. أو النوع الذي يحتوي على عنصر يستطيع اكتساب الإلكترونات ويقل عدد التأكسد له أثناء التفاعل الكيميائي.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">5.</span> عدد التأكسد (حالة التأكسد)</h3>
+            <p class="text-sm text-slate-300">العدد الذي يمثل الشحنة الكهربائية الموجبة أو السالبة التي تحملها ذرة العنصر في المركب أو الأيون.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">6.</span> تفاعلات الأكسدة والاختزال</h3>
+            <p class="text-sm text-slate-300">التفاعلات التي يحدث فيها انتقال إلكترونات من أحد المتفاعلات إلى الآخر</p>
+        </div>
+
+        <!-- 7 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">7.</span> طريقة أنصاف التفاعلات</h3>
+            <p class="text-sm text-slate-300">الطريقة التي يتم فيها تقسيم التفاعل النهائي إلى نصف تفاعل أكسدة ونصف تفاعل اختزال ووزن كل منهما على حدة.</p>
+        </div>
+
+        <!-- 8 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">8.</span> الكيمياء الكهربائية</h3>
+            <p class="text-sm text-slate-300">فرع من الكيمياء الفيزيائية والذي يهتم بدراسة التحولات الكيميائية التي تنتج أو تمتص تيارًا كهربائيًا.</p>
+        </div>
+
+        <!-- 9 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">9.</span> الموصلات الناقلة الإلكترونية</h3>
+            <p class="text-sm text-slate-300">المواد التي توصل التيار الكهربائي عن طريق حركة الإلكترونات داخلها</p>
+        </div>
+
+        <!-- 10 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">10.</span> الموصلات الإلكتروليتية أو الأيونية</h3>
+            <p class="text-sm text-slate-300">المواد التي توصل التيار الكهربائي عن طريق حركة الأيونات (الموجبة والسالبة) داخلها.</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">11.</span> قطب الأنود</h3>
+            <p class="text-sm text-slate-300">القطب الذي تحدث عنده عملية الأكسدة</p>
+        </div>
+
+        <!-- 12 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">12.</span> قطب الكاثود</h3>
+            <p class="text-sm text-slate-300">القطب الذي تحدث عنده عملية الاختزال</p>
+        </div>
+
+        <!-- 13 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">13.</span> الخلايا الكهروكيميائية</h3>
+            <p class="text-sm text-slate-300">أنظمة أو أجهزة تقوم بتحويل الطاقة الكهربائية إلى طاقة كيميائية أو العكس من خلال تفاعلات أكسدة واختزال.</p>
+        </div>
+
+        <!-- 14 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">14.</span> الخلايا الجلفانية أو الخلايا الفولتية</h3>
+            <p class="text-sm text-slate-300">أنظمة تحول الطاقة الكيميائية إلى طاقة كهربائية عن طريق تفاعل أكسدة واختزال يحدث بشكل تلقائي ومستمر.</p>
+        </div>
+
+        <!-- 15 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">15.</span> الخلية الإلكتروليتية</h3>
+            <p class="text-sm text-slate-300">خلايا تحتاج إلى طاقة كهربائية وينتج منها تفاعل كيميائي من نوع الأكسدة والاختزال.</p>
+        </div>
+
+        <!-- 16 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">16.</span> جهد الاختزال</h3>
+            <p class="text-sm text-slate-300">الطاقة المصاحبة لاكتساب المادة للإلكترونات أي ميلها إلى الاختزال.</p>
+        </div>
+
+        <!-- 17 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">17.</span> جهد الاختزال القياسي (E°)</h3>
+            <p class="text-sm text-slate-300">جهد الاختزال عند الظروف القياسية ( عند درجة الحرارة 25°C وضغط غاز إن وجد 101kPa = 1atm ) وتركيز المحلول 1M .</p>
+        </div>
+
+        <!-- 18 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">18.</span> نصف الخلية</h3>
+            <p class="text-sm text-slate-300">وعاء يحتوي على شريحة (قطب) مغمورة جزئيًا في محلول إلكتروليتي لأحد مركباته على الشريحة نفسها.</p>
+        </div>
+
+        <!-- 19 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">19.</span> نصف الخلية القياسي</h3>
+            <p class="text-sm text-slate-300">وعاء / نظام يحتوي على شريحة مغمورة جزئيًا في محلول إلكتروليتي لأحد مركبات مادة الشريحة تركيزه (1M) عند درجة حرارة 25°C وضغط يعادل 101kPa.</p>
+        </div>
+
+        <!-- 20 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">20.</span> نصف خلية الهيدروجين القياسية</h3>
+            <p class="text-sm text-slate-300">وعاء / نظام يحتوي على شريحة خاملة مغمورة جزئيًا في محلول مائي تركيزه (1M) من كاتيوناته الغازيين عند درجة حرارة 25°C وضغط يعادل 101kPa.</p>
+        </div>
+
+        <!-- 21 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">21.</span> قطب الهيدروجين القياسي</h3>
+            <p class="text-sm text-slate-300">قطب من البلاتين (شريحة رقيقة مسامية ومغطاة بطبقة سوداء من البلاتين المجزأ) الذي يعمل كعادة محفزة موضوع داخل غلاف زجاجي يمرر غاز الهيدروجين في محلول حمضي يحتوي على كاتيون الهيدروجين عند ظروف قياسية.</p>
+        </div>
+
+        <!-- 22 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">22.</span> جهد الاختزال القياسي للهيدروجين</h3>
+            <p class="text-sm text-slate-300">ميل كاتيونات الهيدروجين إلى أن تكتسب إلكترونات وتختزل إلى غاز الهيدروجين H₂ .</p>
+        </div>
+
+        <!-- 23 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">23.</span> الرمز الاصطلاحي للخلية الجلفانية</h3>
+            <p class="text-sm text-slate-300">رمز يعبر باختصار الخلية الجلفانية إذ يدل على تركيبها والتفاعلات التي تحدث خلال عملها.</p>
+        </div>
+
+        <!-- 24 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">24.</span> الجسر الملحي</h3>
+            <p class="text-sm text-slate-300">أنبوب على شكل حرف U يحتوي على محلول إلكتروليتي من مثل نترات البوتاسيوم (KNO₃) المذاب في جيلاتين لربط نصفي الخلية ويغلق الدائرة الداخلية في الخلية الجلفانية.</p>
+        </div>
+
+        <!-- 25 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">25.</span> الجهد الكهربائي (Ecell)</h3>
+            <p class="text-sm text-slate-300">مقياس قدرة الخلية على إنتاج تيار كهربائي.</p>
+        </div>
+
+        <!-- 26 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">26.</span> جهد الخلية</h3>
+            <p class="text-sm text-slate-300">الفرق بين جهد الاختزال لنصف الخلية الذي يحدث عنده عملية الاختزال وجهد الاختزال لنصف الخلية الذي يحدث عنده عملية الأكسدة.</p>
+        </div>
+
+        <!-- 27 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">27.</span> سلسلة جهود الاختزال القياسية (السلسلة الكهروكيميائية)</h3>
+            <p class="text-sm text-slate-300">ترتيب أقطاب الخلايا ترتيبًا تصاعديًا تبعًا لجهود اختزالها القياسية مقارنة بقطب خلية الهيدروجين القياسية.</p>
+        </div>
+
+        <!-- 28 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">28.</span> الفلور (F₂)</h3>
+            <p class="text-sm text-slate-300">أقوى العوامل المؤكسدة في السلسلة الإلكتروكيميائية.</p>
+        </div>
+
+        <!-- 29 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">29.</span> كاتيون الليثيوم (Li⁺)</h3>
+            <p class="text-sm text-slate-300">أضعف العوامل المؤكسدة في السلسلة الإلكتروكيميائية.</p>
+        </div>
+
+        <!-- 30 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">30.</span> الليثيوم (Li)</h3>
+            <p class="text-sm text-slate-300">أقوى العوامل المختزلة في السلسلة الإلكتروكيميائية.</p>
+        </div>
+
+        <!-- 31 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">31.</span> أنيون الفلوريد (F⁻)</h3>
+            <p class="text-sm text-slate-300">أضعف العوامل المختزلة في السلسلة الإلكتروكيميائية.</p>
+        </div>
+
+        <!-- 32 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">32.</span> التحليل الكهربائي</h3>
+            <p class="text-sm text-slate-300">العمليات التي تستخدم فيها الطاقة الكهربائية لإحداث تغير كيميائي.</p>
+        </div>
+
+        <!-- 33 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">33.</span> الخلية الإلكتروليتية</h3>
+            <p class="text-sm text-slate-300">خلية كهروكيميائية تستخدم لإحداث تغير كيميائي باستخدام طاقة كهربائية. أو الجهاز الذي يتم فيه عملية التحليل الكهربائي.</p>
+        </div>
+
+        <!-- 34 -->
+        <div class="glass-card p-6 relative hover:border-orange-400/50">
+            <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">34.</span> خلية داون</h3>
+            <p class="text-sm text-slate-300">الخلية المستخدمة لاستخلاص الصوديوم بالتحليل الكهربائي لمصهور كلوريد الصوديوم.</p>
+        </div>
+
+    </div>
+        </section>
+
+        <!-- علل الكيمياء الكهربائية -->
+        <section id="questions-u1-11" class="page-section max-w-5xl mx-auto px-6">
+    <button onclick="navigateTo('unit1-11')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
+        <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
+    </button>
+    
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-black text-sky-400 mb-2">أسئلة علل</h2>
+        <p class="text-slate-400">الوحدة الأولى - الكيمياء الكهربائية</p>
+        <div class="flex items-center justify-center gap-2 mt-4 text-amber-400 text-sm">
+            <i class="fas fa-hand-pointer"></i>
+            <span>اضغط على البطاقة لتظهر الإجابة</span>
+        </div>
+    </div>
+
+    <div class="space-y-4" dir="rtl">
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">1. التفاعل التالي <span dir="ltr" class="text-green-400">[ HCl<sub>(aq)</sub> + NaOH<sub>(aq)</sub> → NaCl<sub>(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub> ]</span> لا يعتبر من تفاعلات الأكسدة والاختزال</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأنه لم يتغير عدد تأكسد أي من العناصر ما يعني أنه لم يحدث فقد واكتساب إلكترونات.</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">2. التفاعل التالي <span dir="ltr" class="text-green-400">[ 2HCl<sub>(aq)</sub> + Fe<sub>(s)</sub> → FeCl<sub>2(aq)</sub> + H<sub>2(g)</sub> ]</span> يعتبر من تفاعلات الأكسدة والاختزال</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">بسبب حدوث فقد واكتساب للإلكترونات وتغير أعداد التأكسد حيث زاد عدد تأكسد الحديد من (0) إلى (+2) عملية أكسدة، في حين نقص عدد تأكسد الهيدروجين في HCl من (+1) إلى (0) في H<sub>2</sub> أي أن الهيدروجين قد حدث له اختزال</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">3. يعتبر أيون الحديد II عامل مختزل في التفاعل : <span dir="ltr" class="text-green-400">Fe<sup>2+</sup> → Fe<sup>3+</sup> + e<sup>-</sup></span></h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن كاتيون الحديد II فقد إلكترون وزاد عدد تأكسده من +2 إلى +3</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">4. يعتبر الكادميوم في التفاعل التالي <span dir="ltr" class="text-green-400">Cd → Cd(OH)<sub>2</sub></span> عامل مختزل</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن الكادميوم حدث له عملية أكسدة (عامل مختزل) حيث زاد عدد التأكسد من (0) إلى (+2)</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">5. في التفاعل التالي يعتبر الكلور (Cl<sub>2</sub>) عامل مؤكسد وعامل مختزل <span dir="ltr" class="text-green-400">Cl<sub>2(g)</sub> + H<sub>2</sub>O<sub>(l)</sub> → HCl<sub>(aq)</sub> + HClO<sub>(aq)</sub></span></h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن الكلور حدث له عملية أكسدة (عامل مختزل) حيث زاد عدد التأكسد من (0) إلى (+1) في HClO وحدث للكلور عملية اختزال (عامل مؤكسد) حيث قل عدد التأكسد من (0) إلى (-1) في HCl</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">6. تكون طبقة لونها بني محمر على سطح مسمار من الحديد عند وضعه في محلول كبريتات النحاس الأزرق ؟</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">بسبب اختزال كاتيونات النحاس Cu<sup>2+</sup> إلى ذرات نحاس Cu لونها بني محمر فتترسب على سطح المسمار الحديدي حسب المعادلة التالية. <span dir="ltr" class="text-green-400">[ Cu<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup> → Cu<sub>(s)</sub> ]</span> اختزال</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">7. يبهت لون المحلول الأزرق تدريجياً حتى يختفي كلما بقي ساق مسمار من الحديد في محلول كبريتات النحاس الأزرق</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن تركيز كاتيونات النحاس Cu<sup>2+</sup> في المحلول يتناقص بسبب اختزالها إلى ذرات نحاس Cu كالتالي <span dir="ltr" class="text-green-400">[ Cu<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup> → Cu<sub>(s)</sub> ]</span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">8. يتآكل سطح شريحة الخارصين عند وضع ساق خارصين في محلول كبريتات النحاس الأزرق ؟</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن بعض ذرات الخارصين Zn قد تفاعلت (تأكسدت) ففقدت إلى كاتيونات الخارصين Zn<sup>2+</sup> الذائبة في الماء <span dir="ltr" class="text-green-400">[ Zn<sub>(s)</sub> → Zn<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup> ]</span> أكسدة</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">9. عند وضع ساق من الخارصين في محلول كبريتات النحاس لا يمكن الحصول على طاقة كهربائية</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لعدم وجود موصل فلزي لحركة الإلكترونات (دائرة مفتوحة)</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">10. لا يمكن قياس الجهد الكهربائي لنصف خلية الخارصين أو لنصف خلية النحاس وهما منفصلان عن بعضهما، ولكن يمكن ذلك عند توصيلهما معاً لتكوين خلية جلفانية</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن كل نصف خلية توصيلها معاً لتكوين دائرة مفتوحة، لا يحدث انتقال إلكترونات منها أو إليها بينما عند توصيلهما لتكوين خلية جلفانية تكون الدائرة مغلقة وتنتقل الإلكترونات من الأنود إلى الكاثود وتنتج تيار يمكن قياس جهده</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">11. في نصف خلية النحاس لا تتغير كتلة النحاس أثناء سريان التيار رغم استمرار تفاعل الأكسدة والاختزال</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">بسبب حدوث حالة اتزان ديناميكي بين عمليتي الأكسدة والاختزال <span dir="ltr" class="text-green-400">Cu<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup> ⇌ Cu<sub>(s)</sub></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">12. يوصف (يسمى) الأنود في الخلية الجلفانية بأنه القطب السالب</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">بسبب تولد الإلكترونات عنده من خلال عملية الأكسدة</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">13. يوصف (يسمى) الكاثود في الخلية الجلفانية بأنه القطب الموجب</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأنه يكتسب الإلكترونات القادمة من الأنود.</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">14. في الخلية الجلفانية التي رمزها <span dir="ltr" class="text-green-400">Zn<sub>(s)</sub>/Zn<sup>2+</sup><sub>(aq)</sub>(1M)//Cu<sup>2+</sup><sub>(aq)</sub>(1M)/Cu<sub>(s)</sub></span> : القطب الذي تقل كتلته والقطب الذي تزداد كتلته</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">القطب الذي تقل كتلته: <span dir="ltr">Zn<sub>(s)</sub>/Zn<sup>2+</sup><sub>(aq)</sub>(1M)//Cu<sup>2+</sup><sub>(aq)</sub>(1M)/Cu<sub>(s)</sub></span> كتلته: الأنود وهو Zn لأن ذرات الخارصين (Zn) قطب (الأنود) تتأكسد وتتحول إلى كاتيونات خارصين (Zn<sup>2+</sup>) تذوب في المحلول فتقل كتلته بحسب التفاعل التالي : <span dir="ltr" class="text-green-400">Zn<sub>(s)</sub> → Zn<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup></span> القطب الذي تزداد كتلته كتلته: (قطب الكاثود وهو Cu) لأن كاتيونات النحاس (Cu<sup>2+</sup>) الموجودة في المحلول تُختزل إلى ذرات نحاس تترسب على (قطب الكاثود) شريحة النحاس فتزداد كتلته حسب التفاعل التالي: <span dir="ltr" class="text-green-400">Cu<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup> → Cu<sub>(s)</sub></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">15. في نفس الخلية : المحلول الذي يزداد تركيزه والمحلول الذي يقل تركيزه</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">للمحلول الذي يزداد تركيزه: محلول نصف خلية الأنود وهو Zn<sup>2+</sup> لأن ذرات الخارصين (Zn) قطب (الأنود) تتأكسد وتتحول إلى كاتيونات خارصين (Zn<sup>2+</sup>) تذوب في المحلول فيزداد تركيزه بحسب التفاعل التالي : <span dir="ltr" class="text-green-400">Zn<sub>(s)</sub> → Zn<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup></span> للمحلول الذي يقل تركيزه: محلول نصف خلية الكاثود وهو Cu<sup>2+</sup> لأن كاتيونات النحاس (Cu<sup>2+</sup>) الموجودة في المحلول تُختزل إلى ذرات نحاس تترسب على (قطب الكاثود) شريحة النحاس فيقل تركيز كاتيونات النحاس Cu<sup>2+</sup> حسب التفاعل التالي: <span dir="ltr" class="text-green-400">Cu<sup>2+</sup><sub>(aq)</sub> + 2e<sup>-</sup> → Cu<sub>(s)</sub></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">16. استخدام (وجود) الجسر الملحي في الخلية الجلفانية.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأنه يعمل على : أ - ربط نصفي الخلية (إغلاق الدائرة الداخلية) ب - استمرار تفاعل الأكسدة والاختزال ج - إعادة الاتزان الكهربائي في نصفي الخلية حيث تهاجر كاتيونات إلكتروليت الجسر الملحي إلى نصف خلية الكاثود وتهاجر الأنيونات إلى نصف خلية الأنود</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">17. نستخدم نصف خلية الهيدروجين القياسية لتحديد قيمة جهد الاختزال القياسي في نصف خلية آخر.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن قيمة جهد الاختزال القياسي للهيدروجين تساوي صفراً عند جميع درجات الحرارة.</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">18. يتصاعد غاز الهيدروجين عند تفاعل الخارصين مع حمض الهيدروكلوريك</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال الخارصين أقل من جهد اختزال الهيدروجين لذلك تتأكسد ذرات الخارصين إلى كاتيونات خارصين وتختزل كاتيونات الهيدروجين إلى غاز الهيدروجين الذي يتصاعد <span dir="ltr" class="text-green-400">Zn + HCl → ZnCl<sub>2</sub> + H<sub>2</sub></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">19. لا يتفاعل النحاس مع الماء وحمض الهيدروكلوريك في الظروف العادية.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال النحاس أكبر من جهد اختزال الهيدروجين ويليه بالسلسلة الإلكتروكيميائية أي أقل نشاط وبالتالي ليس له القدرة على أن يحل محل كاتيونات الهيدروجين في مركباته كالأحماض</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">20. يمكن استخدام فلز المغنيسيوم ولا يمكن استخدام فلز النحاس في تحضير غاز الهيدروجين من الأحماض.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال المغنيسيوم أقل من جهد اختزال الهيدروجين بالسلسلة لذلك يتأكسد ويكون له القدرة على أن يحل محل كاتيونات هيدروجين الحمض ويختزلها إلى غاز الهيدروجين الذي يتصاعد <span dir="ltr" class="text-green-400">Mg<sub>(s)</sub> + 2 HCl<sub>(aq)</sub> → MgCl<sub>2(aq)</sub> + H<sub>2(g)</sub></span> بينما جهد اختزال النحاس أكبر من جهد اختزال الهيدروجين بالسلسلة لذلك لا يتأكسد ولا يستطيع أن يحل محل كاتيونات هيدروجين الحمض فلا يحدث تفاعل</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">21. يتآكل سطح فلز المغنيسيوم عند وضعه في محلول كبريتات حديد II</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال المغنيسيوم أقل من جهد اختزال الحديد فتتأكسد ذرات المغنيسيوم وتذوب وتقل كتلته وتختزل كاتيونات الحديد في المحلول وتتحول إلى ذرات حديد تترسب <span dir="ltr" class="text-green-400">Mg<sub>(s)</sub> + FeSO<sub>4(aq)</sub> → MgSO<sub>4(aq)</sub> + Fe<sub>(s)</sub></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">22. لا يوجد الصوديوم منفرداً في الطبيعة أو يحفظ الصوديوم تحت سطح الكيروسين في المختبر</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن له جهد اختزال منخفض ونشاطه عالي فيتأكسد بسهولة ويتفاعل مع الماء ومع مكونات الهواء الجوي</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">23. يستخدم كل من الذهب والفضة والبلاتين في صناعة الحلي وتوجد في الطبيعة بالحالة العنصرية.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن لها جهد اختزال مرتفع ونشاطها ضعيف فلا تتأكسد بسهولة ولا تتفاعل مع الماء ومع مكونات الهواء الجوي</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">24. لا يتأثر البلاتين بمحاليل الأحماض المخففة في الظروف العادية.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن البلاتين له جهد اختزال كبير حيث يلي الهيدروجين في السلسلة الإلكتروكيميائية وبالتالي ليس له القدرة على أن يحل محل كاتيوناته في مركباته</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">25. أقطاب الخلايا التي تلي الهيدروجين بالسلسلة دائماً تمثل كاثود إذا وصلت بنصف خلية الهيدروجين القياسية</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزالها أكبر من جهد اختزال الهيدروجين وليس لها القدرة أن تحل محل كاتيونات الهيدروجين في مركباتها</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">26. لا يمكن حفظ محلول كبريتات النحاس II المستخدم كمبيد فطري في أواني من الحديد. (الحديد يسبق النحاس في السلسلة الكهروكيميائية)</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال الحديد أقل من جهد اختزال النحاس فيكون أنشط كيميائياً من النحاس ويتأكسد بسهولة إلى كاتيونات حديد II تحل محل كاتيونات النحاس في المحلول فيتآكل الإناء <span dir="ltr" class="text-green-400">Fe + CuSO<sub>4</sub> → FeSO<sub>4</sub> + Cu</span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">27. يعتبر الألومنيوم عاملاً مختزلاً أقوى من الفضة.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزاله أقل من جهد اختزال الفضة لذلك تكون ذرات الألومنيوم أسهل أكسدة وأكثر قدرة على فقد الإلكترونات وبالتالي عامل مختزل أقوى من الفضة.</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">28. عند وضع قطعة من فلز المغنيسيوم في محلول نترات الفضة. يغطى سطح فلز المغنيسيوم بطبقة من الفضة</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن الفضة تلي المغنيسيوم في السلسلة الإلكتروكيميائية وبالتالي يكون جهد اختزال المغنيسيوم أقل من جهد اختزال الفضة فتتأكسد ذرات المغنيسيوم وتذوب وتختزل كاتيونات الفضة إلى ذرات فضة تترسب على سطح قطعة المغنيسيوم</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">29. العناصر الفلزية التي تسبق الهيدروجين لا توجد في الطبيعة على الحالة العنصرية وتوجد على شكل مركبات</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهود اختزالها منخفضة ونشاطها كبير لذلك تتأكسد بسهولة وتتفاعل مع مكونات الهواء مكونة مركبات</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">30. يصدأ الحديد عند تركه معرضاً للهواء الرطب</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن الحديد جهد اختزاله منخفض ونشاطه كبير فتتأكسد ذراته بسهولة ويتفاعل مع مكونات الهواء الجوي مكوناً مركبات</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">31. العناصر الفلزية التي تلي الهيدروجين يمكن أن توجد في الطبيعة في الحالة العنصرية.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن لها جهد اختزال مرتفع ونشاطها ضعيف فلا تتأكسد بسهولة ولا تتفاعل مع مكونات الهواء الجوي</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">32. الفلور يستطيع أن يحل محل جميع الهالوجينات في محاليل مركباتها.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال الفلور أكبر من جهد اختزال الهالوجينات الأخرى فيستطيع أن يؤكسد جميع أنيونات الهالوجينات الأخرى في السلسلة ويحل محل أنيون اللافلز الأقل في جهد الاختزال ويطرده من مركباته</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">33. لا يستطيع اليود أن يحل محل أنيونات الهالوجينات الأخرى في محاليل مركباتها.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن اليود أقل جهد اختزال بين الهالوجينات فيكون أقلها نشاطاً ولا يستطيع أن يحل محل أي أنيونات أخرى للهالوجينات</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">34. يمكن تحضير البروم بتفاعل محاليل أملاحه مع عنصر الكلور.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال البروم أقل من جهد اختزال الكلور والكلور جهد اختزاله أكبر فيحل محل أنيون البروم الأقل جهد اختزال</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">35. يعتبر الكاثود في الخلية الإلكتروليتية القطب السالب (-).</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأنه يتصل بالقطب السالب للبطارية</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">36. يعتبر الأنود في الخلية الإلكتروليتية القطب الموجب (+).</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأنه يتصل بالقطب الموجب للبطارية.</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">37. عند إغلاق الدائرة من مصدر كهربي بمركبات منصهرة أو محاليل إلكتروليتية يمر التيار الكهربي.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن المحلول يصبح محتوياً على أيونات حرة الحركة ويصبح موصلاً للتيار الكهربائي</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">38. عند التحليل الكهربائي للماء المحمض بمصعد خامل يتصاعد غاز الأكسجين عند الأنود.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن الماء يتأكسد عند الأنود لأن جهد اختزاله أقل ويتصاعد غاز الأكسجين حسب التفاعل <span dir="ltr" class="text-green-400">2H<sub>2</sub>O → 4H<sup>+</sup> + 4e<sup>-</sup> + O<sub>2</sub></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">39. يعتبر حمض الكبريتيك مادة مضافة عند التحليل الكهربائي للماء.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن كاتيونات الهيدروجين من الوسط الحمضي تختزل عند الكاثود ويتم التعويض عنها من عملية أكسدة الماء عند الأنود وبالتالي يظل عدد مولات حمض الكبريتيك ثابتاً</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">40. عند التحليل الكهربائي لمحلول كلوريد الصوديوم المخفف لا يتصاعد غاز الكلور عند الأنود بل يتصاعد غاز الأكسجين</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال الماء أقل من جهد اختزال أيونات الكلوريد فيتأكسد الماء</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">41. حجم غاز الهيدروجين الناتج يساوي ضعف حجم غاز الأكسجين عند التحليل الكهربائي للماء.</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن عدد مولات الإلكترونات الناتجة من أكسدة الماء تنتج مول واحد من غاز الأكسجين بينما تختزل كاتيونات الهيدروجين وتنتج مولين من غاز الهيدروجين عند الكاثود (وهي نسبة وجودهما في الماء)</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">42. لا يمكن الحصول على الألومنيوم عملياً باختزال كاتيوناته من المحاليل المائية بالتحليل الكهربائي علماً بأن جهود الاختزال القياسية للألومنيوم هي -1.67V ، وللماء هي -0.41V</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال الألومنيوم أقل من جهد اختزال الماء، لذا يختزل الماء ولا تختزل كاتيونات الألومنيوم التي تظل ذائبة في المحلول.</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">43. يصبح المحلول قاعدياً عند الكاثود خلال عملية التحليل الكهربائي لمحلول كلوريد الصوديوم المخف</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">بسبب اختزال الماء عند الكاثود لأنه الأكبر قيمة جهد اختزال وعدم اختزال كاتيونات الصوديوم لأن جهد اختزاله أقل وطبقاً لمعادلة اختزال الماء التالية: <span dir="ltr" class="text-green-400">2H<sub>2</sub>O<sub>(l)</sub> + 2e<sup>-</sup> → H<sub>2(g)</sub> + 2OH<sup>-</sup></span> فيصبح الوسط عند الكاثود قاعدياً لتكون أيونات الهيدروكسيد (OH<sup>-</sup>)</div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">44. عند التحليل الكهربائي لمحلول مركز من كلوريد الصوديوم باستخدام أقطاب من الجرافيت يتصاعد غاز الكلور عند الأنود علماً بأن جهد اختزال الماء (0.815V)، وجهد اختزال الكلور (1.36V)</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأنه عند بدء عملية التحليل يتأكسد الماء لأنه أقل جهد اختزال وطبقاً للمعادلة التالية: <span dir="ltr" class="text-green-400">2H<sub>2</sub>O → O<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>-</sup></span> ولكن تراكم غاز الأكسجين على القطب (استقطاب) يرفع جهد اختزال الماء ويصبح أكبر من جهد اختزال الكلور فيتأكسد الكلوريد بدلاً من الماء حسب المعادلة التالية: <span dir="ltr" class="text-green-400">2Cl<sup>-</sup> → Cl<sub>2</sub> + 2e<sup>-</sup></span></div>
+        </div>
+
+        <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+            <h4 class="font-bold text-lg text-sky-300">45. لا يمكن استخلاص الصوديوم بالتحليل الكهربائي لمحلول كلوريد الصوديوم باستخدام أقطاب خاملة</h4>
+            <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">لأن جهد اختزال كاتيون الصوديوم (Na<sup>+</sup>) أقل من جهد اختزال الماء، وبالتالي يكون اختزال الماء أسهل من اختزال كاتيونات الصوديوم ولذلك يُختزل الماء وتبقى كاتيونات الصوديوم ذائبة في المحلول.</div>
+        </div>
+
+    </div>        
         </section>
 
         <!-- ثاني عشر -->
@@ -269,7 +805,7 @@
 
 
         <!-- مصطلحات الأملاح -->
-<section id="terms-u1-12" class="page-section max-w-6xl mx-auto px-6">
+        <section id="terms-u1-12" class="page-section max-w-6xl mx-auto px-6">
     <button onclick="navigateTo('unit1-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
@@ -419,10 +955,10 @@
             <p class="text-sm text-slate-300">منحنى يوضح العلاقة البيانية بين الرقم الهيدروجيني (pH) للمحلول في الدورق المخروطي وحجم الحمض أو القاعدة المضاف من السحاحة في معايرة الأحماض والقواعد.</p>
         </div>
     </div>
-</section>
+        </section>
 
         <!-- علل الأملاح -->
-<section id="questions-u1-12" class="page-section max-w-5xl mx-auto px-6">
+        <section id="questions-u1-12" class="page-section max-w-5xl mx-auto px-6">
     <button onclick="navigateTo('unit1-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
@@ -593,10 +1129,10 @@
         </div>
 
     </div>
-</section>
+        </section>
 
         <!-- ماذا تتوقع أن يحدث الأملاح -->
-<section id="predict-u1-12" class="page-section max-w-5xl mx-auto px-6" dir="rtl">
+        <section id="predict-u1-12" class="page-section max-w-5xl mx-auto px-6" dir="rtl">
     <button onclick="navigateTo('unit1-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
@@ -773,10 +1309,10 @@
         </div>
 
     </div>
-</section>
+        </section>
 
         <!-- مصطلحات العضوية -->
-<section id="terms-u2-12" class="page-section max-w-6xl mx-auto px-6">
+        <section id="terms-u2-12" class="page-section max-w-6xl mx-auto px-6">
     <button onclick="navigateTo('unit2-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
@@ -791,16 +1327,19 @@
         
         <!-- من الصورة الأولى -->
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">1.</span> المجموعة الوظيفية</h3>
             <p class="text-sm text-slate-300">ذرة أو مجموعة ذرية تُمثل الجزء النشط الذي ترتكز إليه التفاعلات الكيميائية للمركب الذي يحتويها ، وتُحدد الصيغة البنائية والخواص الكيميائية لعائلة من المركبات العضوية.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">2.</span> ألكوكسي كربونيل </h3>
             <p class="text-sm text-slate-300">المجموعة الوظيفية في الأسترات.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">3.</span> تفاعلات الاستبدال </h3>
             <p class="text-sm text-slate-300">تفاعلات تحل فيها ذرة أو مجموعة ذرة محل ذرة أو مجموعة ذرية أخرى متصلة بذرة الكربون.</p>
         </div>
@@ -811,21 +1350,25 @@
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">5.</span> تفاعلات الإضافة </h3>
             <p class="text-sm text-slate-300">تفاعلات يتم فيها إضافة ذرات أو مجموعات ذرية إلى ذرتي كربون متجاورتين ترتبطان برابطة تساهمية ثنائية أو ثلاثية غير مشبعة.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">6.</span> الهيدروكربونات الهالوجينية </h3>
             <p class="text-sm text-slate-300">مركبات عضوية مشتقة من الهيدروكربونات الأليفاتية أو الأروماتية باستبدال ذرة هالوجين أو أكثر محل ما يماثل عددها من ذرات الهيدروجين.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">7.</span> هاليد الألكيل / هالوألكان </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تتصل ذرة هالوجين واحدة بشقي الكيل.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">8.</span> هاليد الفينيل / هالو بنزين </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تتصل ذرة هالوجين واحدة بشق الفينيل .</p>
         </div>
@@ -841,11 +1384,13 @@
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">11.</span> هاليد ألكيل أولي </h3>
             <p class="text-sm text-slate-300">مركبات عضوية ترتبط فيها ذرة الهالوجين بذرة كربون أولية متصلة بذرة هيدروجين ومجموعة الكيل أو بذرات هيدروجين. وله الصيغة العامة <span dir="ltr">RCH<sub>2</sub>-X</span></p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">12.</span> هاليد ألكيل ثانوي </h3>
             <p class="text-sm text-slate-300">هاليد الألكيل الذي له الصيغة العامة <span dir="ltr">R<sub>2</sub>CH-X</span> وفيها ترتبط ذرة الهالوجين بذرة كربون ثانوية متصلة بمجموعتين الكيل</p>
         </div>
@@ -866,11 +1411,13 @@
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">16.</span> الكحولات </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تحتوي على مجموعة هيدروكسيل (-OH) واحدة أو أكثر مرتبطة بذرة كربون مشبعة.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">17.</span> الفينولات </h3>
             <p class="text-sm text-slate-300">عائلة من المركبات العضوية فيها ترتبط مجموعة الهيدروكسيل مباشرة بحلقة البنزين والفينول هو المركب الأساسي لجميع المشتقات.</p>
         </div>
@@ -881,11 +1428,13 @@
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">19.</span> الكحولات الأروماتية </h3>
             <p class="text-sm text-slate-300">الكحولات التي تحتوي جزيئاتها على حلقة بنزين لا تتصل مباشرة بمجموعة الهيدروكسيل.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">20.</span> الكحولات أحادية الهيدروكسيل </h3>
             <p class="text-sm text-slate-300">الكحولات التي تتميز بوجود مجموعة هيدروكسيل واحدة في الجزيء.</p>
         </div>
@@ -916,21 +1465,25 @@
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">26.</span> الأسترات </h3>
             <p class="text-sm text-slate-300">مركبات ناتجة من تفاعل الحمض الكربوكسيلي مع الكحول.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">27.</span> الألدهيدات </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تكون فيها ذرة كربون مجموعة الكربونيل طرفية (متصلة بذرة هيدروجين واحدة على الأقل).</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">28.</span> الكيتونات </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تكون فيها ذرة كربون مجموعة الكربونيل غير طرفية (متصلة بذري كربون).</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">29.</span> الألدهيدات الأليفاتية </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تحتوي على مجموعة الألدهيد ( - CHO ) متصلة بذرة هيدروجين أو بشق ألكيل.</p>
         </div>
@@ -941,11 +1494,13 @@
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">31.</span> الكيتونات الأليفاتية </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تحتوي مجموعة كربونيل متصلة بشقَّي ألكيل.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
+                        <span class="absolute top-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">32.</span> الكيتونات الأروماتية </h3>
             <p class="text-sm text-slate-300">مركبات عضوية تحتوي مجموعة كربونيل متصلة مباشرة بشقَّي فينيل أو بشق فينيل وشق ألكيل.</p>
         </div>
@@ -961,10 +1516,10 @@
         </div>
 
     </div>
-</section>
+        </section>
 
         <!-- علل العضوية -->
-<section id="questions-u2-12" class="page-section max-w-5xl mx-auto px-6">
+        <section id="questions-u2-12" class="page-section max-w-5xl mx-auto px-6">
     <button onclick="navigateTo('unit2-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
@@ -981,6 +1536,7 @@
     <div class="space-y-4" dir="rtl">
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                        <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
     <h4 class="font-bold text-lg text-sky-300">1. يُعتبر كلوريد أيزوبيوتيل من هاليدات الألكيل الأولية "وضح إجابتك بكتابة الصيغة البنائية" ؟</h4>
     <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
         <p>- لأن ذرة الهالوجين (الكلور) مرتبطة بذرة كربون (أولية) تتصل بشق عضوي واحد وهو شق الأيزوبيوتيل وذرتي هيدروجين وصيغته.</p>
@@ -996,6 +1552,7 @@
 </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
     <h4 class="font-bold text-lg text-sky-300">2. يُعتبر المركب (2- برومو بيوتان) من هاليدات الألكيل الثانوية ؟</h4>
     <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
         <p>- لأن ذرة الهالوجين (البروم) مرتبطة بذرة كربون (ثانوية) تتصل بذرة هيدروجين واحدة ومجموعتي ألكيل.</p>
@@ -1011,11 +1568,13 @@
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">4. الهيدروكربونات الهالوجينية شحيحة الذوبان في الماء على الرغم من أنها قُطبية ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- وذلك لأنها لا تكون روابط هيدروجينية مع الماء.</div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">5. درجة غليان هاليدات الألكيل أعلى بكثير من درجة غليان الألكانات التي حُضرت منها ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- لأن هاليدات الألكيل مركبات قطبية وقوة التجاذب بين جزيئاتها كبيرة بينما الألكانات مركبات غير قطبية قوة التجاذب بين جزيئاتها ضعيفة.</div>
         </div>
@@ -1031,11 +1590,13 @@
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">8. تُعتبر هاليدات الألكيل مواد نشطة غير مستقرة تتفاعل بسهولة ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- لأن ذرة الهالوجين لها سالبية كهربية مرتفعة ما يؤدي إلى قُطبية الرابطة، حيث تحمل ذرة الهالوجين شحنة سالبة جزئية، وتحمل ذرة الكربون شحنة موجبة جزئية.</div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">9. لا يُعتبر الفينول (C<sub>6</sub>H<sub>5</sub> - OH) من الكحولات الأروماتية ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- لأن مجموعة الهيدروكسيل ارتبطت ارتباطاً مباشراً بحلقة البنزين.</div>
         </div>
@@ -1056,16 +1617,19 @@
 </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">12. درجات غليان الكحولات أعلى من درجات غليان الهيدروكربونات المتقاربة معها في الكُتل المولية ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- بسبب وجود مجموعة الهيدروكسيل القُطبية التي تعمل على تكوين روابط هيدروجينية بين جزيئاتها بينما الهيدروكربونات مركبات غير قُطبية وقوة التجاذب بين جزيئاتها ضعيفة.</div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">13. تزداد درجة الغليان مع زيادة عدد مجموعات الهيدروكسيل في الجزيء ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- بسبب زيادة عدد الروابط الهيدروجينية التي يمكن للجزيء أن يكونها مع جزيئات الكحول وبعضها.</div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">14. درجة غليان جليكول إيثيلين HO-CH<sub>2</sub>-CH<sub>2</sub>-OH أعلى من درجة غليان الإيثانول ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- لأن عدد مجموعات الهيدروكسيل في جليكول إيثيلين أكبر من الإيثانول فيزداد عدد الروابط الهيدروجينية التي يمكن أن تتكون بين جزيئات جليكول إيثيلين فتزيد درجة الغليان.</div>
         </div>
@@ -1086,6 +1650,7 @@
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">18. يسلك الكحول سلوك الأحماض الضعيفة جدا وأيضا سلوك القواعد الضعيفة جدا ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- يسلك الكحول سلوك الأحماض الضعيفة جدا بسبب وجود الرابطة القُطبية (O-H) ويسلك سلوك القواعد الضعيفة جدا بسبب وجود الرابطة القُطبية (C-O)، ووجود زوجين من الإلكترونات الحرة غير المشاركة على ذرة الأكسجين.</div>
         </div>
@@ -1101,6 +1666,7 @@
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
     <h4 class="font-bold text-lg text-sky-300">21. الكحولات الثالثية تقاوم عملية الأكسدة (لا تتأكسد) ؟</h4>
     <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
         <p>- بسبب عدم ارتباط ذرة الكربون المتصلة بمجموعة الهيدروكسيل بذرة هيدروجين.</p>
@@ -1126,6 +1692,7 @@
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
     <h4 class="font-bold text-lg text-sky-300">25. مركبات مجموعة الكربونيل (الألدهيدات والكيتونات) لها خواص القاعدة الضعيفة ؟</h4>
     <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
         <p>- وجود رابطة تساهمية ثنائية قُطبية مع زوجين من إلكترونات التكافؤ غير المشاركة في ذرة الأكسجين.</p>
@@ -1176,16 +1743,19 @@
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">31. درجات غليان الألدهيدات والكيتونات أقل من درجات غليان الكحولات المقاربة لها في الكُتل المولية ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- يعود ذلك إلى عدم قدرة الألدهيدات والكيتونات على تكوين روابط هيدروجينية بين جزيئاتها بينما تستطيع الكحولات تكوين روابط هيدروجينية بين جزيئاتها (بين بعضها البعض) لاحتوائها على مجموعة الهيدروكسيل القُطبية.</div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">32. تذوب الألدهيدات والكيتونات ذات الكتل المولية المنخفضة (تحتوي على أقل من 4 ذرات كربون) في الماء بنسب مختلفة ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- لقدرتها على تكوين روابط هيدروجينية بين جزيئاتها وجزيئات الماء.</div>
         </div>
 
         <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">33. تتفاعل الألدهيدات والكيتونات بالإضافة بسهولة ؟</h4>
             <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm">- وذلك بسبب كسر الرابطة (باي π) في مجموعة الكربونيل ما يسمح بتكوين رابطتين سيجما σ.</div>
         </div>
@@ -1237,10 +1807,10 @@
         </div>
 
     </div>
-</section>
+        </section>
 
         <!-- ماذا تتوقع أن يحدث العضوية -->
-<section id="predict-u2-12" class="page-section max-w-5xl mx-auto px-6" dir="rtl">
+        <section id="predict-u2-12" class="page-section max-w-5xl mx-auto px-6" dir="rtl">
     <button onclick="navigateTo('unit2-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
@@ -1258,6 +1828,7 @@
 
         <!-- 1 -->
         <div class="glass-card p-6 cursor-pointer hover:border-amber-400/50 transition-all" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">1. إضافة الماء المقطر إلى وعاء يحتوي على إيثوكسيد الصوديوم في وجود عدة نقاط من دليل الفينولفثالين بالنسبة للون المحلول ؟</h4>
             <div class="answer hidden mt-4 pt-4 border-t border-white/10 text-slate-200 space-y-2">
                 <p><strong class="text-amber-300">التوقع:</strong> يتلون باللون الزهري</p>
@@ -1269,6 +1840,7 @@
 
         <!-- 2 -->
         <div class="glass-card p-6 cursor-pointer hover:border-amber-400/50 transition-all" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                                    <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
             <h4 class="font-bold text-lg text-sky-300">2. إضافة مادة مؤكسدة إلى كحول البيوتنيل الثالثي بالنسبة لتأكسد الكحول ؟</h4>
             <div class="answer hidden mt-4 pt-4 border-t border-white/10 text-slate-200 space-y-2">
                 <p><strong class="text-amber-300">التوقع:</strong> لا يتأكسد (لا يحدث تفاعل)</p>
@@ -1316,6 +1888,7 @@
 
         <!-- 4 -->
 <div class="glass-card p-5 cursor-pointer" onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                            <span class="absolute bottom-3 left-3 text-[9px] bg-sky-500/15 text-sky-300 px-2 py-0.5 rounded-md font-bold border border-sky-400/20">امتحان سابق</span>
     <h4 class="font-bold text-lg text-sky-300">4. تسخين الأسيتالدهيد مع محلول فهلنج ؟</h4>
     <div class="answer hidden mt-3 pt-3 border-t border-white/10 text-slate-200 text-sm space-y-2">
         <p>- بسبب أكسدة الإيثانال بكاشف فهلنج وتكون ملح الحمض العضوي وتُختزل كاتيونات النحاس إلى أكسيد نحاس(I) أحمر طوبي وفق المعادلة:</p>
@@ -1351,7 +1924,8 @@
     </div>
 </div>
 
-</section>
+        </section>
+
         <!-- صفحات المحتوى -->
         <section id="terms-u1-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">المصطلحات - الأملاح</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit1-12')" class="mt-8 text-sky-400 font-bold">رجوع</button></div></section>
         <section id="questions-u1-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">أسئلة علل - الأملاح</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit1-12')" class="mt-8 text-sky-400 font-bold">رجوع</button></div></section>
