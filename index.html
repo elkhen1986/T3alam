@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +8,138 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        * { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #020617; color: #E2E8F0; min-height: 100vh; display: flex; flex-direction: column; background-image: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); }
-        header.fixed-nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 1000; background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; padding: 0 25px; }
-        footer.fixed-footer { position: fixed; bottom: 0; left: 0; right: 0; height: 40px; z-index: 1000; background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; }
-        main { flex: 1; padding-top: 90px; padding-bottom: 60px; }
-       .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 28px; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
-       .glass-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(56,189,248,0.5); box-shadow: 0 0 30px rgba(56,189,248,0.15); transform: translateY(-8px); }
-       .sub-lesson-card { border: 2px dashed rgba(56,189,248,0.08)!important; padding: 40px 20px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 15px; transition: all 0.4s ease; }
-       .sub-lesson-card:hover { border-color: rgba(56,189,248,0.7)!important; box-shadow: 0 0 25px rgba(56,189,248,0.2); background: rgba(56,189,248,0.04); }
-       .page-section { display: none; }
-       .page-active { display: block; animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-       .status-badge { margin-top: 25px; display: inline-block; padding: 4px 14px; border-radius: 10px; font-size: 11px; font-weight: 800; }
-       .badge-soon { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
-       .badge-live { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
-       .wa-float { position: fixed; bottom: 60px; left: 20px; z-index: 1001; }
-       .wa-icon { width: 55px; height: 55px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(37,211,102,0.3); }
-    </style>
+    * { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* === الألوان حسب الوضع === */
+    [data-theme="dark"] {
+        --accent: #38bdf8;        /* أزرق للعناوين في الليلي */
+        --accent-rgb: 56,189,248;
+        --bg: #020617;
+        --bg2: #0f172a;
+        --text: #E2E8F0;
+        --muted: #94a3b8;
+        --card: rgba(255,255,255,0.03);
+        --border: rgba(255,255,255,0.1);
+        --nav: rgba(15,23,42,0.85);
+    }
+    [data-theme="light"] {
+        --accent: #8b5cf6;        /* بنفسجي للعناوين في النهاري */
+        --accent-rgb: 139,92,246;
+        --bg: #f8fafc;
+        --bg2: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --card: rgba(255,255,255,0.8);
+        --border: rgba(0,0,0,0.08);
+        --nav: rgba(255,255,255,0.85);
+    }
+
+    body { 
+        background: var(--bg); 
+        color: var(--text); 
+        min-height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+        background-image: radial-gradient(circle at 50% 50%, var(--bg2) 0%, var(--bg) 100%);
+        transition: background 0.3s, color 0.3s;
+    }
+    
+    header.fixed-nav { 
+        position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 1000; 
+        background: var(--nav); backdrop-filter: blur(12px); 
+        border-bottom: 1px solid var(--border); 
+        display: flex; align-items: center; justify-content: space-between; padding: 0 25px; 
+    }
+    
+    footer.fixed-footer { 
+        position: fixed; bottom: 0; left: 0; right: 0; height: 40px; z-index: 1000; 
+        background: var(--nav); backdrop-filter: blur(12px); 
+        border-top: 1px solid var(--border); 
+        display: flex; align-items: center; justify-content: center; 
+    }
+    
+    main { flex: 1; padding-top: 90px; padding-bottom: 60px; }
+    
+   .glass-card { 
+       background: var(--card); 
+       backdrop-filter: blur(15px); 
+       border: 1px solid var(--border); 
+       border-radius: 28px; 
+       transition: all 0.4s cubic-bezier(0.4,0,0.2,1); 
+   }
+   .glass-card:hover { 
+       background: rgba(255,255,255,0.07); 
+       border-color: rgba(var(--accent-rgb),0.5); 
+       box-shadow: 0 0 30px rgba(var(--accent-rgb),0.15); 
+       transform: translateY(-8px); 
+   }
+   
+   .sub-lesson-card { 
+       border: 2px dashed rgba(var(--accent-rgb),0.08)!important; 
+       padding: 40px 20px; text-align: center; cursor: pointer; 
+       display: flex; flex-direction: column; align-items: center; gap: 15px; 
+       transition: all 0.4s ease; 
+   }
+   .sub-lesson-card:hover { 
+       border-color: rgba(var(--accent-rgb),0.7)!important; 
+       box-shadow: 0 0 25px rgba(var(--accent-rgb),0.2); 
+       background: rgba(var(--accent-rgb),0.06); 
+   }
+   
+   .page-section { display: none; }
+   .page-active { display: block; animation: fadeIn 0.5s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    
+   .status-badge { margin-top: 25px; display: inline-block; padding: 4px 14px; border-radius: 10px; font-size: 11px; font-weight: 800; }
+   .badge-soon { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,0.2); }
+   .badge-live { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
+   
+   .wa-float { position: fixed; bottom: 60px; left: 20px; z-index: 1001; }
+   .wa-icon { width: 55px; height: 55px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(37,211,102,0.3); }
+   
+   /* توحيد ألوان العناوين */
+   .text-violet, .text-sky-400, .text-sky-300 { color: var(--accent) !important; }
+   .border-violet { border-color: var(--accent) !important; }
+   
+   /* زر الوضع الليلي */
+   .theme-btn {
+       width: 36px; height: 36px;
+       border-radius: 10px;
+       background: var(--card);
+       border: 1px solid var(--border);
+       display: grid; place-items: center;
+       cursor: pointer;
+       color: var(--muted);
+       transition: 0.2s;
+   }
+   .theme-btn:hover { color: var(--accent); }
+
+   /* === لون الخط يتغير مع الوضع === */
+   body, .glass-card, h1, h2, h3, h4, p, span, button {
+     color: var(--text);
+     transition: color 0.3s;
+   }
+   [data-theme="light"] .text-slate-400 { color: #64748b !important; }
+   [data-theme="light"] .text-slate-300 { color: #475569 !important; }
+   [data-theme="light"] .text-slate-200 { color: #334155 !important; }
+   [data-theme="light"] .text-slate-500 { color: #64748b !important; }
+   [data-theme="light"] .answer { color: #1e293b !important; }
+   [data-theme="light"] .glass-card p { color: #334155 !important; }
+   [data-theme="light"] .glass-card:hover { background: rgba(255,255,255,0.9); }
+</style>
 </head>
 <body>
     <header class="fixed-nav">
-        <div class="flex items-center gap-2"><i class="fas fa-atom text-sky-400 text-2xl"></i><span class="text-2xl font-black">تـعلـم</span></div>
-        <div class="text-slate-400 font-bold text-xs">أ/ عبدالحميد الخن</div>
+        <div class="flex items-center gap-2">
+            <i class="fas fa-atom text-violet text-2xl"></i>
+            <span class="text-2xl font-black">تـعلـم</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="font-bold text-xs" style="color:var(--muted)">أ/ عبدالحميد الخن</div>
+        </div>
     </header>
 
     <main>
@@ -675,7 +784,7 @@
         <!-- من الصورة الأولى -->
         <div class="glass-card p-6 relative hover:border-orange-400/50">
             <h3 class="text-lg font-black text-orange-300 mb-3"><span class="text-orange-500">1.</span> المجموعة الوظيفية</h3>
-            <p class="text-sm text-slate-300">ذرة أو مجموعة ذرة تُمثل الجزء النشط الذي ترتكز إليه التفاعلات الكيميائية للمركب الذي يحتويها ، وتُحدد الصيغة البنائية والخواص الكيميائية لعائلة من المركبات العضوية.</p>
+            <p class="text-sm text-slate-300">ذرة أو مجموعة ذرية تُمثل الجزء النشط الذي ترتكز إليه التفاعلات الكيميائية للمركب الذي يحتويها ، وتُحدد الصيغة البنائية والخواص الكيميائية لعائلة من المركبات العضوية.</p>
         </div>
 
         <div class="glass-card p-6 relative hover:border-orange-400/50">
@@ -848,7 +957,7 @@
 
         <!-- علل العضوية -->
 <section id="questions-u2-12" class="page-section max-w-5xl mx-auto px-6">
-    <button onclick="navigateTo('unit2')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
+    <button onclick="navigateTo('unit2-12')" class="glass-card px-5 py-2 mb-8 text-xs font-black inline-flex items-center gap-2">
         <i class="fas fa-arrow-right text-sky-400"></i> رجوع للوحدة
     </button>
     
@@ -1116,6 +1225,7 @@
 
     </div>
 </section>
+
         <!-- صفحات المحتوى -->
         <section id="terms-u1-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">المصطلحات - الأملاح</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit1-12')" class="mt-8 text-sky-400 font-bold">رجوع</button></div></section>
         <section id="questions-u1-12" class="page-section max-w-4xl mx-auto px-6 text-center"><div class="glass-card p-16"><h2 class="text-2xl font-black">أسئلة علل - الأملاح</h2><p class="text-slate-400 mt-4">سيتم إضافة المحتوى هنا</p><button onclick="navigateTo('unit1-12')" class="mt-8 text-sky-400 font-bold">رجوع</button></div></section>
@@ -1136,5 +1246,24 @@
             window.scrollTo(0,0);
         }
     </script>
+    <script>
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const saved = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', saved);
+  
+  function updateIcon(t){
+    btn.innerHTML = t==='dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  }
+  updateIcon(saved);
+  
+  btn.addEventListener('click', ()=>{
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon(next);
+  });
+</script>
+
 </body>
 </html>
