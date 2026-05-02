@@ -60,25 +60,30 @@
 }
 
 footer.fixed-footer { 
-    position: fixed; bottom: 0; left: 0; right: 0; 
+    position: fixed; 
+    bottom: 0; left: 0; right: 0; 
     z-index: 1000; 
     background: var(--nav); 
     backdrop-filter: blur(12px); 
     border-top: 1px solid var(--border); 
-    min-height: 38px;
+    min-height: 42px;
     height: auto;
-    padding: 6px clamp(12px, 3vw, 24px);
+    padding: 8px clamp(10px, 3vw, 20px);
+    padding-bottom: max(8px, env(safe-area-inset-bottom)); /* للآيفون */
     display: flex; 
     align-items: center; 
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
     text-align: center;
-    font-size: clamp(10px, 2.5vw, 12px);
+    font-size: clamp(10px, 2.8vw, 12px);
+    line-height: 1.3;
 }
     
 main { 
     flex: 1; 
-    padding-top: clamp(70px, 12vw, 90px); 
-    padding-bottom: clamp(50px, 10vw, 65px); 
+    padding-top: clamp(68px, 14vw, 88px); 
+    padding-bottom: clamp(60px, 16vw, 80px); /* زودت البوتوم عشان الفوتر */
 }    
    .glass-card { 
        background: var(--card); 
